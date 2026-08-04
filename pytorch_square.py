@@ -29,28 +29,22 @@ time_pytorch_function(torch.square, b)
 time_pytorch_function(square_2, b)
 time_pytorch_function(square_3, b)
 
-print("=============")
 print("Profiling torch.square")
-print("=============")
 
-# Now profile each function using pytorch profiler
+# Profile each function using pytorch profiler
 with torch.autograd.profiler.profile(use_cuda=True) as prof:
     torch.square(b)
 
 print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
 
-print("=============")
 print("Profiling a ** 2")
-print("=============")
 
 with torch.autograd.profiler.profile(use_cuda=True) as prof:
     square_2(b)
 
 print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
 
-print("=============")
 print("Profiling a * a")
-print("=============")
 
 with torch.autograd.profiler.profile(use_cuda=True) as prof:
     square_3(b)
