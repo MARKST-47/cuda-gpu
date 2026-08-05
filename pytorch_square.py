@@ -36,7 +36,7 @@ print(f"torch.square: {benchmark_cuda_fn(torch.square, b):.4f} ms")
 print(f"a ** 2:       {benchmark_cuda_fn(square_2, b):.4f} ms")
 print(f"a * a:        {benchmark_cuda_fn(square_3, b):.4f} ms")
 
-# Modern PyTorch Profiler
+# PyTorch Profiler
 def profile_operation(func, tensor, name):
     print(f"\n--- Profiling: {name} ---")
     
