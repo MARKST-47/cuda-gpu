@@ -5,8 +5,8 @@ print(f"Using device: {torch.cuda.get_device_name(0)}")
 
 a = torch.tensor([1., 2., 3.], device=device)
 print("torch.square:", torch.square(a))  
-print("a ** 2:      ", a ** 2)
-print("a * a:       ", a * a)
+print("a ** 2:", a ** 2)
+print("a * a:", a * a)
 
 # Benchmarking Function (Averaged over 100 runs)
 def benchmark_cuda_fn(func, tensor, num_iters=100, num_warmup=10):
@@ -33,8 +33,8 @@ def square_3(x): return x * x
 
 print("\n--- Accurate CUDA Event Timing (Average per call) ---")
 print(f"torch.square: {benchmark_cuda_fn(torch.square, b):.4f} ms")
-print(f"a ** 2:       {benchmark_cuda_fn(square_2, b):.4f} ms")
-print(f"a * a:        {benchmark_cuda_fn(square_3, b):.4f} ms")
+print(f"a ** 2: {benchmark_cuda_fn(square_2, b):.4f} ms")
+print(f"a * a: {benchmark_cuda_fn(square_3, b):.4f} ms")
 
 # PyTorch Profiler
 def profile_operation(func, tensor, name):
